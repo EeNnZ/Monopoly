@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33808.371
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monopoly.API", "Monopoly.API\Monopoly.API.csproj", "{98631703-35A2-480C-B01F-1F81BE41DE8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monopoly.Warehouse.WebHost", "Monopoly.Warehouse.WebHost\Monopoly.Warehouse.WebHost.csproj", "{98631703-35A2-480C-B01F-1F81BE41DE8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monopoly.ConsoleClient", "Monopoly.ConsoleClient\Monopoly.ConsoleClient.csproj", "{7C34D2D9-1B39-4E89-B556-D9CEB8A358E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monopoly.Warehouse.Client.Console", "Monopoly.Warehouse.Client.Console\Monopoly.Warehouse.Client.Console.csproj", "{7C34D2D9-1B39-4E89-B556-D9CEB8A358E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly.TestsAPI", "Monopoly.TestsAPI\Monopoly.TestsAPI.csproj", "{1A7FAB6E-F6B7-499E-A7A6-B85B12CD9614}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly.Warehouse.Tests.Controllers", "Monopoly.Warehouse.Tests.Controllers\Monopoly.Warehouse.Tests.Controllers.csproj", "{1A7FAB6E-F6B7-499E-A7A6-B85B12CD9614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly.WpfClient", "Monopoly.WpfClient\Monopoly.WpfClient.csproj", "{831C6E28-AEAB-4613-BB2B-00419889A71D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly.Warehouse.Client.Wpf", "Monopoly.Warehouse.Client.Wpf\Monopoly.Warehouse.Client.Wpf.csproj", "{831C6E28-AEAB-4613-BB2B-00419889A71D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly.Warehouse.Core", "Monopoly.Warehouse.Core\Monopoly.Warehouse.Core.csproj", "{67D5A436-5C61-48CB-A8D2-F145FE56D647}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly.Warehouse.DataAccess", "Monopoly.Warehouse.DataAccess\Monopoly.Warehouse.DataAccess.csproj", "{B81E98E8-2736-42CC-8B99-D6B590CA285B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly.Warehouse.Client.Common", "Monopoly.Warehouse.Client.Common\Monopoly.Warehouse.Client.Common.csproj", "{16FA8B48-F7C1-46C3-989A-343C8697CE28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{831C6E28-AEAB-4613-BB2B-00419889A71D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831C6E28-AEAB-4613-BB2B-00419889A71D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831C6E28-AEAB-4613-BB2B-00419889A71D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67D5A436-5C61-48CB-A8D2-F145FE56D647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D5A436-5C61-48CB-A8D2-F145FE56D647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D5A436-5C61-48CB-A8D2-F145FE56D647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D5A436-5C61-48CB-A8D2-F145FE56D647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81E98E8-2736-42CC-8B99-D6B590CA285B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81E98E8-2736-42CC-8B99-D6B590CA285B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81E98E8-2736-42CC-8B99-D6B590CA285B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81E98E8-2736-42CC-8B99-D6B590CA285B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FA8B48-F7C1-46C3-989A-343C8697CE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FA8B48-F7C1-46C3-989A-343C8697CE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FA8B48-F7C1-46C3-989A-343C8697CE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FA8B48-F7C1-46C3-989A-343C8697CE28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

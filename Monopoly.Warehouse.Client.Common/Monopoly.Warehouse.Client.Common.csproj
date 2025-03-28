@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Monopoly.Warehouse.Core\Monopoly.Warehouse.Core.csproj" />
+      <ProjectReference Include="..\Monopoly.Warehouse.DataAccess\Monopoly.Warehouse.DataAccess.csproj" />
+      <ProjectReference Include="..\Monopoly.Warehouse.WebHost\Monopoly.Warehouse.WebHost.csproj" />
+    </ItemGroup>
+
+</Project>
