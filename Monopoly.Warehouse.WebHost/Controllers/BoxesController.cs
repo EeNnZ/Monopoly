@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Monopoly.Warehouse.Core.Abstractions.Repositories;
 using Monopoly.Warehouse.Core.Domain.Warehouse.Entities;
+using Monopoly.Warehouse.WebHost.Extensions;
 using Monopoly.Warehouse.WebHost.Models.Box;
 using Monopoly.Warehouse.WebHost.Models.Pallet;
 using Swashbuckle.AspNetCore.Annotations;
@@ -13,7 +16,7 @@ namespace Monopoly.Warehouse.WebHost.Controllers;
 /// <param name="boxesRepository"></param>
 [ApiController]
 [Route("api/[controller]")]
-public class BoxesController(IRepository<Box> boxesRepository) : ControllerBase
+public class BoxesController(IRepository<Box> boxesRepository, IValidator<BoxCreateOrUpdate> validator) : ControllerBase
 {
     /// <summary>
     ///     Gets all boxes.
@@ -110,8 +113,13 @@ public class BoxesController(IRepository<Box> boxesRepository) : ControllerBase
     [SwaggerOperation(Summary = "Create a new box", Description = "Adds a new box to the database.")]
     public async Task<ActionResult<BoxResponse>> PostBox(BoxCreateOrUpdate model)
     {
-        if (!ModelState.IsValid)
+        ValidationResult result = await validator.ValidateAsync(model);
+
+        if (!result.IsValid)
+        {
+            result.AddToModelState(ModelState);
             return BadRequest(ModelState.ValidationState);
+        }
 
         var box = new Box()
         {

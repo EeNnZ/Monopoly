@@ -6,7 +6,7 @@ namespace Monopoly.Warehouse.DataAccess.Repositories;
 public class InMemoryRepository<T>(List<T>? entities) : IRepository<T>
     where T : BaseEntity
 {
-    private ICollection<T> Data { get; } = entities ?? [];
+    private ICollection<T> Data { get; } = entities ?? new List<T>();
 
 
     public Task<ICollection<T>> GetAllAsync()

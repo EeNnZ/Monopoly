@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Monopoly.Warehouse.Core.Abstractions.Repositories;
 using Monopoly.Warehouse.Core.Domain.Warehouse.Entities;
+using Monopoly.Warehouse.WebHost.Extensions;
 using Monopoly.Warehouse.WebHost.Models.Pallet;
 
 namespace Monopoly.Warehouse.WebHost.Controllers;
 
 [Route("api/pallets")]
 [ApiController]
-public class PalletsController(IRepository<Pallet> palletsRepository) : ControllerBase
+public class PalletsController(IRepository<Pallet> palletsRepository, IValidator<PalletCreateOrUpdate> validator) : ControllerBase
 {
     /// <summary>
     ///     Retrieves all pallets.
@@ -64,8 +67,13 @@ public class PalletsController(IRepository<Pallet> palletsRepository) : Controll
     [ProducesResponseType(500)]
     public async Task<ActionResult<PalletResponse>> PostPallet(PalletCreateOrUpdate model)
     {
-        if (!ModelState.IsValid)
+        ValidationResult result = await validator.ValidateAsync(model);
+
+        if (!result.IsValid)
+        {
+            result.AddToModelState(ModelState);
             return BadRequest(ModelState.ValidationState);
+        }
 
         var pallet = new Pallet
         {

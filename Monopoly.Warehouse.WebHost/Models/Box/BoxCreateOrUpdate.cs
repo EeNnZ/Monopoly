@@ -12,9 +12,6 @@ public class BoxCreateOrUpdate
     {
         Weight = weight;
 
-        if (dateCreated is null && expirationDate is null)
-            throw new ValidationException("Creation or expiration date must be specified");
-
         // Set the DateCreated if it is provided
         if (dateCreated is not null)
             DateCreated = dateCreated;
@@ -25,7 +22,7 @@ public class BoxCreateOrUpdate
             ExpirationDate = expirationDate.Value;
     }
 
-    [Required] public decimal Weight { get; }
+    public decimal Weight { get; }
 
     public DateOnly? DateCreated { get; set; }
 
